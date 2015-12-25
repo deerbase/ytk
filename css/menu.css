@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+body{margin: 0; padding: 0;}
+
+.menu{margin: 0; padding: 0;}
+.menu ul{margin:0; padding:0; list-style:none;}
+.menu li{font-size: 14px; background-color: #fff; color: #fff;}
+.drop-down a, .drop-down span{color: #666; text-decoration: none;}
+.drop-down a:hover, .drop-down span:hover{color: #fff;}
+
+.menu>li>a:hover, .menu>li>span:hover,.sub-menu li:hover {
+background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(top,  #45484d 0%, #535456 2%, #45484d 4%, #000000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(2%,#535456), color-stop(4%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #45484d 0%,#535456 2%,#45484d 4%,#000000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #45484d 0%,#535456 2%,#45484d 4%,#000000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #45484d 0%,#535456 2%,#45484d 4%,#000000 100%); /* IE10+ */
+background: linear-gradient(top,  #45484d 0%,#535456 2%,#45484d 4%,#000000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+color: #fff;
+}
+
+/* Sub Lists */
+.sub-menu li, .sub-menu a {
+  -webkit-transform: translateZ(0);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.sub-menu li{background-color: #febf04; border: solid 1px #eee;}
+.sub-menu a{color: #666;}
+.sub-menu li:hover a{color: #fff;}
+
+.menu>:hover>span,.sub-menu li {
+  background: #ffd65e; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffd65e 0%, #febf04 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd65e), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffd65e 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffd65e 0%,#febf04 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffd65e 0%,#febf04 100%); /* IE10+ */
+  background: linear-gradient(top,  #ffd65e 0%,#febf04 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04',GradientType=0 ); /* IE6-9 */
+  color: #666;
+  }
+
+/*600px以上*/
+@media only screen and (min-width: 768px) {
+  #header-nav .menu :after{content: ""; display: block; clear: both;}
+  #header-nav .drop-down {float: left; width: 20%;}
+  #header-nav .sub-menu {float: left; width: 180%;}
+  .menu{display: block !important;}
+  #header-nav ul li {
+    position: relative;  /*z-indexの指定や子要素の基準とするために指定*/
+    z-index: 1;  /*ドロップダウンしたメニューが隠れないように*/
+  }
+  #header-nav ul li ul.sub-menu {
+    /*display: none;*/  /*サブメニューは最初は非表示にしておく*/
+    position: absolute;  /*絶対配置にしておかないとうまくいかない*/
+    top: 40px; left: 0;
+  }
+  .drop-down span{cursor: default;}
+  /*.drop-down span{cursor: pointer;}*/
+  /* Base Nav Styles */
+  .menu>li{display: block; float: left;}
+  .menu>li a, .menu>li span{display: block; padding: 10px 20px;}
+  .drop-down span{text-align: center;}
+  /* Drop Down */
+  .sub-menu{max-height: 0; overflow: hidden;}
+  .drop-down:hover .sub-menu{max-height: 260px;}
+}
+
+/*599px以下*/
+@media only screen and (max-width: 767px) {
+  .menu{display: none;}
+  .drop-down span{cursor: pointer;}
+  .sub-menu{max-height: 0; overflow: hidden;}
+  .drop-down :focus + .sub-menu{max-height: 260px;}
+  .drop-down:focus span{color: #fff;}
+  .menu li a, .drop-down span{padding: 12px 25px;}
+  .menu li a, .drop-down span {display: block;}
+  .menu .drop-down{padding: 0;}
+  .drop-down:focus .sub-menu {
+  -webkit-transition: all 0.5s 0.05s;
+  -moz-transition: all 0.5s 0.05s;
+  -o-transition: all 0.5s 0.05s;
+  transition: all 0.5s 0.05s;
+  }
+}
+.menu>li>a, .menu>li>span {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sub-menu, .menu span {
+  background: #fff;
+  -webkit-transform: translateZ(0);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
